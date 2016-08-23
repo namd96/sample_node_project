@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chat server</title>
+    <style>
+        #chat{
+            height : 500px;
+        }
+    </style>
+</head>
+<body>
+<script src="/socket.io/socket.io.js"></script>
+
+
+<div id = "chat"> </div>
+<form id  = "message">
+
+<input size = '35 ' id = "sendMessage" ></input>
+    <input type = "submit"></input>
+</form>
+<script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src=" socket.io/socket.io.js"></script>
+<script>
+    jQuery(function($)){
+        var socket = io.connect();
+        var $sendmessage = $('#message'');
+        var $messagebox = $('#sendMessage');
+        var $chat = $('#chat');
+
+        $sendmessage.submit.function(e){
+
+            socket.emit('send message' $messagebox.val();
+            $messagebox.val(' ' );
+        }
+  socket.on('new message' , function(data){
+            $chat.append(data + "<br\>");
+        }
+    }
+</script>
+
+</body>
+</html>
